@@ -4,7 +4,10 @@
 #' @title NULL Pipe
 #' @name %||%
 #'
-#' @description Defaults for NULL values
+#' @description Pipe `%||%` evaluates nullity between two objects and:
+#' a) **return x** if neither x nor y is NULL, empty or NA
+#' b) **return x** if y is NULL, empty or NA
+#' c) **return y** if x is NULL, empty or NA
 #'
 #' @param x any value
 #' @param y any value
