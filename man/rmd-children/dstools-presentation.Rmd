@@ -1,0 +1,82 @@
+
+## Overview
+
+dstools gives Datasketch a compendium of useful and generic functions in order to improve other packages work.
+
+
+## Installation
+
+Install the development version of dstools from GitHub with:
+
+``` r
+# install.packages("devtools")
+remotes::install_github("datasketch/dstools")
+```
+
+## Usage
+
+Some of the main functions of this package are:
+
+- Pipe `%||%` evaluates nullity between two objects and:
+
+  a) **return x** if neither x nor y is NULL, empty or NA
+  b) **return x** if y is NULL, empty or NA
+  c) **return y** if x is NULL, empty or NA
+  
+```{r}
+library(dstools)
+
+# **return x** if neither x nor y is NULL, empty or NA
+x <- "pepe"
+y <- "x"
+
+x %||% y
+
+# **return x** if y is NULL, empty or NA
+x <- "pepe"
+y <- NULL
+
+x %||% y
+
+# return y if x is NULL, empty or NA
+x <- NULL
+y <- "x"
+
+x %||% y
+```
+
+
+- `remove_accents` eliminates accents from vocals and return the given string value without them
+
+```{r}
+remove_accents("Thís accénts áré góing to bé removéd")
+```
+
+- `is.empty` evaluates object emptiness
+
+```{r}
+# Empty object
+empty_object <- list()
+is.empty(empty_object)
+
+# Not empty object
+non_empty_object <- "hello"
+is.empty(non_empty_object)
+```
+
+- `na_to_chr` replace NA values with a given value
+
+```{r}
+sample <- c("text 1", NA, "text 2", "text 3", NA)
+
+na_to_chr(sample, "ex_na")
+```
+
+
+- `na_proportion` estimates the proportion of NA values in a vector
+
+```{r}
+sample <- c(NA, NA, 1,2,3,4)
+na_proportion(sample)
+```
+
