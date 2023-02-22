@@ -17,5 +17,5 @@ Remove accents
 }
 \examples{
 
-remove_accents("Estós ácentós están por sér elíminádós")
+remove_accents("Thís accénts áré góing to bé removéd")
 }
