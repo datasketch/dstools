@@ -32,7 +32,7 @@
   } else if (all(is.null(x)) || all(is.na(x))){
     return(y)
 
-  } else if(inherits(x, "character") && nchar(x)==0 ){
+  } else if (inherits(x, "character") && length(nchar(x)) == 0){
     return(y)
 
   } else {x}
