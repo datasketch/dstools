@@ -10,4 +10,3 @@ test_that("multiplication works", {
   removeNAs(x)
 
 })
-})
