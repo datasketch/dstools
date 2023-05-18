@@ -19,6 +19,7 @@
 #' dic <- data.frame(x = c("a", "b"), y = c("1", "2"))
 #' match_replace(v, dic)
 #' match_replace(v, dic, force = FALSE)
+#' @export
 match_replace <- function (v, dic, force = TRUE){
   matches <- dic[[2]][match(v, dic[[1]])]
   out <- matches
