@@ -4,7 +4,7 @@
 \alias{named_list_to_df}
 \title{Convert a Named List to a Data Frame}
 \usage{
-named_list_to_df(x)
+named_list_to_df(x, keep_null = TRUE, class = FALSE)
 }
 \arguments{
 \item{x}{A named list.}

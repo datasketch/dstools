@@ -3,6 +3,7 @@
 export("%||%")
 export(collapse)
 export(create_slug)
+export(getfun)
 export(is.empty)
 export(match_replace)
 export(na_proportion)

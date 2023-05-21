@@ -14,8 +14,32 @@
 #' named_list <- list("a" = 1, "b" = 2, "c" = 3)
 #' named_list_to_df(named_list)
 #' @export
-named_list_to_df <- function (x){
-  df <- data.frame(name = names(x), value = unlist(x))
-  rownames(df) <- NULL
+named_list_to_df <- function (x, keep_null = TRUE, class = FALSE){
+  if(keep_null){
+    x[sapply(x, is.null)] <- NA
+  }
+  nms <- names(x)
+  if(has_many_values(x)){
+    value <- unname(purrr::list_flatten(x))
+    df <- tibble::tibble(name = nms, value = x)
+  }else{
+    value <- unlist(x, recursive = FALSE)
+    df <- data.frame(name = nms, value = unname(unlist(x)))
+  }
+
+  if(class){
+    df$class <- unname(unlist(lapply(x, function(x){
+      if(all(is.na(x))) return(NA)
+      class(x)
+    })))
+  }
+
   df
 }
+
+
+has_many_values <- function(x){
+  any(lapply(x, length) > 1)
+}
+
+

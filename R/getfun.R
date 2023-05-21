@@ -16,6 +16,7 @@
 #' @examples
 #' getfun("base::sum")
 #' getfun("hello")
+#' @export
 getfun <- function(x) {
   if(length(grep("::", x))>0) {
     parts<-strsplit(x, "::")[[1]]
