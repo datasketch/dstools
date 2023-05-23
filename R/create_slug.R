@@ -13,7 +13,7 @@
 #' create_slug(sample, "ex_na")
 #'
 create_slug <- function (x, sep = "-"){
-  x <- gsub("[^[:alnum:]]", "-", x)
+  x <- gsub("[^[:alnum:]_]", "-", x)
   x <- remove_accents(x)
   x <- tolower(x)
   x <- gsub("-+", "-", x)
