@@ -3,6 +3,7 @@
 export("%||%")
 export(collapse)
 export(create_slug)
+export(flatten_list)
 export(getfun)
 export(is.empty)
 export(is_url)
