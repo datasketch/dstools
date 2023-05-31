@@ -6,5 +6,6 @@ test_that("multiplication works", {
   x <- "with_underscore"
   expect_equal(create_slug(x), "with_underscore")
 
+
 })
 
