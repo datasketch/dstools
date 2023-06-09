@@ -8,6 +8,7 @@ test_that("Checking emptyness", {
   expect_true(is.empty(x))
   x <- NULL
   expect_true(is.empty(x))
-
+  x <- NA
+  expect_true(is.empty(x))
 
 })

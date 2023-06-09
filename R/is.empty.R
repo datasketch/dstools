@@ -15,6 +15,7 @@
 #'
 is.empty <- function(x){
   if(length(x) == 0) return(TRUE)
+  if(length(x) == 1 && is.na(x)) return(TRUE)
   if(length(x) == 1 && nchar(x) == 0) return(TRUE)
   !as.logical(length(x))
 }
