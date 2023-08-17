@@ -13,5 +13,6 @@ RoxygenNote: 7.2.3
 URL: https://github.com/pablotis/dstools
 BugReports: https://github.com/pablotis/dstools/issues
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    dplyr
 Config/testthat/edition: 3
