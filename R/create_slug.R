@@ -12,7 +12,8 @@
 #'
 #' create_slug(sample, "ex_na")
 #'
-create_slug <- function (x, sep = "-"){
+create_slug <- function (x, sep = "-", append_random = FALSE,
+                         append_random_n = 5){
   x <- gsub("[^[:alnum:]_]", "-", x)
   x <- remove_accents(x)
   x <- tolower(x)
@@ -21,5 +22,9 @@ create_slug <- function (x, sep = "-"){
   x <- gsub("^-+", "", x)
   if(sep != "-")
     x <- gsub("-", sep, x)
+  if(append_random){
+    prefix <- ifelse(x == "", x, paste0(x,"-"))
+    x <- random_name(n = append_random_n, prefix = prefix)
+  }
   x
 }
