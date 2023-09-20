@@ -4,7 +4,7 @@
 \alias{create_slug}
 \title{Create slug from string}
 \usage{
-create_slug(x, sep = "-")
+create_slug(x, sep = "-", append_random = FALSE, append_random_n = 5)
 }
 \arguments{
 \item{x}{character vector}
