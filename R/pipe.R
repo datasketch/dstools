@@ -26,7 +26,7 @@
 #' @export
 `%||%` <- function (x, y){
 
-  if (is.empty(x)){
+  if (all(is.empty(x))){
     return(y)
 
   } else if (all(is.null(x)) || all(is.na(x))){

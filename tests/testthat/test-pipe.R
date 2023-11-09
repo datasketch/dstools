@@ -13,4 +13,9 @@ test_that("NULL pipe", {
   x <- NULL
   y <- ""
   x %||% y
+
+  x <- 1:3
+  y <- ""
+  expect_equal(x %||% y, x)
+
 })
