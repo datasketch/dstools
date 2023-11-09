@@ -8,4 +8,9 @@ test_that("multiplication works", {
                    b = c(1, NA, 5, 2))
   expect_equal(ncol(discard_all_empty_columns(df)), 1)
 
+  df <- data.frame(a = c(1, NA, 2, NA),
+                   b = c("a", "", "b", ""))
+  expect_equal(nrow(discard_all_empty_rows(df)), 2)
+
+
 })

@@ -11,4 +11,15 @@ test_that("Checking emptyness", {
   x <- NA
   expect_true(is.empty(x))
 
+  x <- c("", 2)
+  expect_equal(is.empty(x), c(TRUE, FALSE))
+
+  x <- c("", "")
+  expect_equal(is.empty(x), c(TRUE, TRUE))
+
+  x <- c("", 2, NA)
+  expect_equal(is.empty(x), c(TRUE, FALSE, TRUE))
+
+
+
 })

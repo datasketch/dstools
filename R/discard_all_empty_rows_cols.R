@@ -14,7 +14,8 @@
 #'
 #' @export
 discard_all_empty_rows <- function (d) {
-  d |> dplyr::filter(apply(d, 1, function(x) !all(is.empty(x) | is.na(x))))
+  d |>
+    dplyr::filter(apply(d, 1, function(x) !all(is.empty(x) | is.na(x))))
 }
 
 #' Discard All Empty Columns from a Data Frame
