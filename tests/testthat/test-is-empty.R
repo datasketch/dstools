@@ -20,6 +20,8 @@ test_that("Checking emptyness", {
   x <- c("", 2, NA)
   expect_equal(is.empty(x), c(TRUE, FALSE, TRUE))
 
+  x <- rep(NA, 1000)
+  is.empty(x)
 
 
 })
