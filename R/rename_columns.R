@@ -40,6 +40,7 @@ rename_columns <- function(df, name_dict) {
   cols_to_rename <- intersect(names(df), name_dict)
 
   # Create a new dictionary with only the columns that exist in the data frame
+  name_dict <- name_dict[match(cols_to_rename, name_dict)]
   new_names <- names(name_dict[name_dict %in% cols_to_rename])
 
   # Rename the columns
