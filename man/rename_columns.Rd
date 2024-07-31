@@ -20,7 +20,8 @@ A data frame with renamed columns.
 This function renames the columns of a data frame based on a provided dictionary.
 It only renames columns that exist in the data frame and ignores dictionary
 entries for non-existent columns. The dictionary can be either a named vector
-or a data frame with two columns.
+or a data frame with two columns. The first column will be the new name if the
+input is a data.frame. The new name will be the names of the input dictionary.
 }
 \examples{
 df <- data.frame(a = 1:3, b = 4:6, c = 7:9)

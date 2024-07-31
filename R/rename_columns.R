@@ -3,7 +3,8 @@
 #' This function renames the columns of a data frame based on a provided dictionary.
 #' It only renames columns that exist in the data frame and ignores dictionary
 #' entries for non-existent columns. The dictionary can be either a named vector
-#' or a data frame with two columns.
+#' or a data frame with two columns. The first column will be the new name if the
+#' input is a data.frame. The new name will be the names of the input dictionary.
 #'
 #' @param df A data frame whose columns you want to rename.
 #' @param name_dict A named vector where names are the current column names and values
@@ -30,16 +31,16 @@ rename_columns <- function(df, name_dict) {
     if (ncol(name_dict) != 2) {
       stop("When name_dict is a data frame, it must have exactly two columns.")
     }
-    name_dict <- setNames(as.character(name_dict[[1]]), as.character(name_dict[[2]]))
+    name_dict <- setNames(as.character(name_dict[[2]]), as.character(name_dict[[1]]))
   } else if (!is.vector(name_dict) || is.null(names(name_dict))) {
     stop("name_dict must be either a named vector or a data frame with two columns.")
   }
 
   # Get the names of columns that exist in both the data frame and the dictionary
-  cols_to_rename <- intersect(names(df), names(name_dict))
+  cols_to_rename <- intersect(names(df), name_dict)
 
   # Create a new dictionary with only the columns that exist in the data frame
-  new_names <- name_dict[cols_to_rename]
+  new_names <- names(name_dict[name_dict %in% cols_to_rename])
 
   # Rename the columns
   names(df)[match(cols_to_rename, names(df))] <- new_names
