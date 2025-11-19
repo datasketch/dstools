@@ -30,7 +30,8 @@ read_folder_dfs <- function(path,
     if (ext == "csv") {
       readr::read_csv(f, show_col_types = FALSE)
     } else if (ext == "json") {
-      tibble::as_tibble(yyjsonr::read_json_file(f))
+      # tibble::as_tibble(yyjsonr::read_json_file(f))
+      tibble::as_tibble(jsonlite::read_json(f, simplifyVector = TRUE))
     } else {
       stop("Unsupported extension for file: ", f)
     }
