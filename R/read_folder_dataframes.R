@@ -1,6 +1,6 @@
 
 #' @export
-read_folder_dataframes <- function(path,
+read_folder_dfs <- function(path,
                                    assign_to_global = FALSE,
                                    recursive = FALSE,
                                    csv_pattern  = "\\.csv$",
